@@ -3,91 +3,96 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Landing Page</title>
+  <title>Welcome to My Retro Website</title>
 
   <style>
     body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.6;
-      color: #333;
-    }
-
-    header {
-      background: linear-gradient(135deg, #4f46e5, #6366f1);
+      background: #000 url('stars.gif') repeat; /* retro background */
       color: white;
-      padding: 4rem 1rem;
+      font-family: 'Courier New', Courier, monospace;
       text-align: center;
+      margin: 0;
+      padding: 0;
     }
 
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
+    h1 {
+      font-size: 4rem;
+      color: #00ff00;
+      text-shadow: 2px 2px #000;
     }
 
-    header p {
+    .marquee {
       font-size: 1.2rem;
-      margin-bottom: 2rem;
+      color: #ff00ff;
+      animation: marquee 10s linear infinite;
+      white-space: nowrap;
     }
 
-    .btn {
-      display: inline-block;
-      background: white;
-      color: #4f46e5;
-      padding: 0.75rem 1.5rem;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
+    @keyframes marquee {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
     }
 
-    .btn:hover {
-      background: #e0e7ff;
+    .container {
+      padding: 50px;
     }
 
-    section {
-      padding: 3rem 1rem;
-      max-width: 900px;
-      margin: auto;
-    }
-
-    section h2 {
-      text-align: center;
-      margin-bottom: 1rem;
-    }
-
-    section p {
-      text-align: center;
-      max-width: 700px;
-      margin: auto;
+    .gif {
+      width: 200px;
+      height: auto;
+      margin: 30px auto;
     }
 
     footer {
-      background: #f4f4f4;
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-      margin-top: 2rem;
+      margin-top: 50px;
+      font-size: 0.8rem;
+      color: #aaa;
     }
   </style>
 </head>
+
 <body>
+  
+  <!-- Retro scrolling marquee -->
+  <div class="marquee">⚡ Welcome to My Rad 90s Flashback Website! ⚡</div>
 
-  <header>
-    <h1>Welcome to the Slop Hole</h1>
-    <p>HAHAHA</p>
-    <a href="#about" class="btn">Learn More</a>
-  </header>
+  <div class="container">
 
-  <section id="about">
-    <h2>About This Site</h2>
-    <p>
-      My trash hole for my various things
+    <!-- Classic big header -->
+    <h1>Welcome to My Retro Page!</h1>
+
+    <!-- Under Construction GIF with fallback for reduced motion users -->
+    <picture>
+      <source srcset="underconstruction.gif" 
+              media="(prefers-reduced-motion: no-preference)">
+      <img src="underconstruction.png" 
+           alt="Under Construction" class="gif">
+    </picture>
+
+    <!-- Fun blinking text -->
+    <p style="animation: blink 1.5s step-end infinite;">
+      ~ This site is totally awesome and under construction ~
     </p>
-  </section>
+
+    <!-- Classic animated GIF -->
+    <img src="flames.gif" alt="Flaming GIF" class="gif">
+
+  </div>
 
   <footer>
-    © me me me me me 
+    &copy; 2025 My Retro Website — Designed like it’s 1999!
   </footer>
+
+  <script>
+    /* Optional blink animation */
+    const style = document.createElement("style");
+    style.textContent = `
+      @keyframes blink {
+        50% { opacity: 0; }
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
 
 </body>
 </html>
