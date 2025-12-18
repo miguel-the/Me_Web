@@ -71,6 +71,43 @@
     a:hover {
       text-decoration: underline;
     }
+    
+      /* Base image styling */
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1.5rem auto;
+    border-radius: 8px;
+  }
+  
+  /* Images inside content sections */
+  section img {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Caption styling */
+  figure {
+    margin: 2rem 0;
+    text-align: center;
+  }
+  
+  figcaption {
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 0.5rem;
+  }
+  
+  /* Clickable images */
+  a img {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  a img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  }
+
   </style>
 </head>
 
@@ -84,10 +121,19 @@
   <main>
 
     <section>
-      <h2>Overview</h2>
+      <h2>Metaphor</h2>
       <p>
-        This page exists to provide structured information in a clear and accessible way.
-        It is designed for reading, reference, and understanding rather than promotion.
+        Metaphor connecting to Megaten, what the heeeeeeellll. 
+      </p>
+    </section>
+    
+    <section>
+      <h2>Aren't the demon's just references?</h2>
+      <p>
+        As everyone I'm sure is aware, the Devil Summoner Archetype summons demons from Megaten. And many people dismiss
+        as just references, which is already strange as this is a player character's branch of Archetype which should already clue
+        one in on importance. But they do indeed make several mentions of previous titles lore to make it clear these games are connected to 
+        Megaten proper.
       </p>
     </section>
 
@@ -96,7 +142,7 @@
   </main>
 
   <footer>
-    © 2025 — Information Page
+    © 2025 — Is the year
   </footer>
 
 </body>
