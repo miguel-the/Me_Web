@@ -122,6 +122,18 @@
       left: 0;
     }
 
+    nav.toc {
+      border: 1px solid #ccc;
+      padding: 15px;
+      width: 300px;
+      background: #f9f9f9;
+    }
+
+    nav.toc h2 {
+      margin-top: 0;
+      font-size: 1.2rem;
+    }
+
   </style>
 </head>
 
@@ -131,12 +143,22 @@
     <h1> Information </h1>
      <p>
         <a href="/index.html">Fuck go back</a>
+
+          <nav class="toc" aria-label="Table of contents">
+      <h2>Table of Contents</h2>
+      <ol>
+        <li><a href="#1">Sea of Souls connection</a></li>
+        <li><a href="#2">Expanse connection</a></li>
+        <li><a href="#3">Example Section</a></li>
+      </ol>
+    </nav>
     </p>
   </header>
 
   <main>
 
     <section>
+      <section id="1">
       <h2>Metaphor Megaten huh, SEA OF SOULS?!?!</h2>
       <figure>
        <img src="/assests/devil.png" alt="Example diagram">
@@ -269,6 +291,7 @@
     </section>
 
     <section>
+      <section id="2">
       <h2>The Expanse section!</h2>
       <figure>
        <img src="/assests/span1.png" alt="Example diagram">
