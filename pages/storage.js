@@ -1,4 +1,4 @@
-    var n = localStorage.getItem('on_load_counter');
+    var n = localStorage.getItem('on_load_counter', 0);
 
     if (n === null) {
         n = 0;
