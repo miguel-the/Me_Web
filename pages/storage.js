@@ -6,6 +6,6 @@
 
     n++;
 
-    localStorage.setItem("on_load_counter", 0);
+    localStorage.setItem("on_load_counter", n);
 
     document.getElementById('CounterVisitor').innerHTML = n;
