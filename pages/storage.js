@@ -1,4 +1,4 @@
-fetch('https://me-web-tosx.onrender.com/visit')
+fetch('/https://me-web-tosx.onrender.com/pages/mahoako.html#5/visit')
     .then(response => {
         if (!response.ok) {
             throw new Error('Could not get visitor count');
