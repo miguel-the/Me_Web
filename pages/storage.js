@@ -1,8 +1,16 @@
 fetch('https://me-web-tosx.onrender.com/visit')
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Could not get visitor count');
+        }
+
+        return response.json();
+    })
     .then(data => {
         document.getElementById('CounterVisitor').innerHTML = data.count;
     })
     .catch(error => {
-        console.error('Error getting visitor count:', error);
+        console.error('Visitor counter error:', error);
+
+        document.getElementById('CounterVisitor').innerHTML = 'Error';
     });
