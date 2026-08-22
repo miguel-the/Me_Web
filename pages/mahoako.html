@@ -183,9 +183,11 @@
   padding: 15px; /* Some padding */
   border-radius: 10px; /* Rounded corners */
   font-size: 18px; /* Increase font size */
+ 
 }
 
-#myBtn:hover {
+#myBtn:hover 
+{
   background-color: #555; /* Add a dark-grey background on hover */
 }
 
@@ -205,7 +207,11 @@
 
   </header>
   
-<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+<button 
+ 
+  onclick= "topFunction()" id="myBtn" title="Go to top">Top <img src="/assests/b1.png" alt="Example diagram">
+
+</button>
 
 <script>
 // Get the button
@@ -217,7 +223,9 @@ window.onscroll = function() {scrollFunction()};
 function scrollFunction() {
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
     mybutton.style.display = "block";
-  } else {
+  } 
+  else 
+  {
     mybutton.style.display = "none";
   }
 }
