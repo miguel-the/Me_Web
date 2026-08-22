@@ -135,7 +135,14 @@
       width: min(90vw, 380px);
       background: #f9f9f9;
       text-align: left;
-      margin: 0 auto;
+      margin: 0;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1000;
+      max-height: 80vh;
+      overflow-y: auto;
     }
 
     nav.toc h2 {
@@ -167,6 +174,14 @@
 @media (max-width: 768px) {
   img {
     float: none !important;
+  }
+
+  nav.toc {
+    position: static;
+    transform: none;
+    margin: 0 auto 1rem;
+    max-height: none;
+    overflow-y: visible;
   }
 }
 
