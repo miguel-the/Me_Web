@@ -132,9 +132,10 @@
     nav.toc {
       border: 1px solid #ccc;
       padding: 15px;
-      width: 300px;
+      width: min(90vw, 380px);
       background: #f9f9f9;
-      text-align: right;
+      text-align: left;
+      margin: 0 auto;
     }
 
     nav.toc h2 {
@@ -241,7 +242,7 @@ function topFunction() {
 <main>
     <nav class="toc" aria-label="Table of contents">
       <h2>Table of Contents</h2>
-      <nav ol>
+      <ol>
         <li><a href="#1">Experience and or Skill</a></li>
         <li><a href="#2">Equipment</a></li>
         <li><a href="#3">Abilities</a></li>
@@ -250,7 +251,7 @@ function topFunction() {
         <li><a href="#6">Scaling</a></li>
         <li><a href="#7">Resistances</a></li>
         <li><a href="#8">Weaknesses</a></li>
-      </nav ol>
+      </ol>
     </nav>
 
     <div style="height: 70px;"></div>
