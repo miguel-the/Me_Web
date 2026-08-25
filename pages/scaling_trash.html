@@ -3,8 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="images/PNG" href="/assests/yorn.PNG">
-  <title>Information Page</title>
+  <link rel="icon" type="image/png" href="/assests/yorn.PNG">
+  <title>Metaphor Connecting to Megaten</title>
+
+  
+  <meta
+    name="description"
+    content="Webpage Establishing The Lore Connections Metaphor Has With Megaten"
+  >
+
+  <!-- Link preview information -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Metaphor Connecting to Megaten Webpage">
+  <meta
+    property="og:description"
+    content="Webpage Establishing The Lore Connections Metaphor Has With Megaten"
+  >
+  <meta
+    property="og:url"
+    content="https://me-web-tosx.onrender.com/pages/scaling_trash.html"
+  >
+  <meta
+    property="og:image"
+    content="/assests/0000001.png"
+  >
+
+  <!-- X/Twitter preview -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Metaphor Connecting to Megaten Webpage">
+<meta name="twitter:description" content="Webpage Establishing The Lore Connections Metaphor Has With Megaten">
+
+
+  <meta
+    name="twitter:image"
+    content="/assests/b90.png"
+  >
+  <meta name="twitter:image:alt" content="Metaphor Connecting to Megaten Webpage">
+  
 
   <style>
     body {
@@ -150,11 +185,49 @@
       margin: 0.5rem 0;
     }
 
+    #myBtn {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: transparent; /* Set a background color */
+  color: none; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  /*padding: 1px; /* Some padding */
+  /*border-radius: 5px; /* Rounded corners */
+  font-size: 18px; /* Increase font size */
 
+}
+
+#myBtn:hover 
+{
+  background-color: #555; /* Add a dark-grey background on hover */
+}
+
+.link-preview {
+  display: block;
+  max-width: 520px;
+  border: 1px solid #d8d8d8;
+  border-radius: 6px;
+  padding: 18px;
+  margin: 20px 0;
+
+  background: white;
+  color: #222;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+
+
+    
   </style>
 </head>
 
-<body>
+<body id="top">
   
   <header>
 
@@ -165,6 +238,37 @@
     </p>
 
   </header>
+
+    
+<button 
+ 
+  onclick= "topFunction()" id="myBtn" title="Go to top"> <img src="/assests/b88.png" alt="Example diagram" width="50" height="50">
+
+</button>
+
+<script>
+// Get the button
+let mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } 
+  else 
+  {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
 
   <main>
     <nav class="toc" aria-label="Table of contents">
@@ -746,6 +850,12 @@
   <footer>
     © 2025 — Is the year
   </footer>
+
+  <script>
+    window.onload = function () {
+        window.scrollTo(0, 0);
+    };
+</script>
 
 </body>
 </html>
