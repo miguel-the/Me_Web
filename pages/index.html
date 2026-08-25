@@ -8,13 +8,10 @@
 </head>
 <body>
     
-
-
-
     <div class="container">
         <div class="head"><h1>Post a Comment</h1></div>
-        <div><span id="comment">0</span> Comments</div>
-        <div class="text"><p>We are happy to hear from you</p></div>
+        <div><span id="comment">0</span> COMMENTS NOW</div>
+        <div class="text"><p> blorg </p></div>
         <div class="comments"></div>
         <div class="commentbox">
             <img src="user1.png" alt="">
@@ -31,74 +28,130 @@
                         </div>
                     </div>
                 </div>
-                <p class="policy">This site is procted by reCAPTCHA and the Google <a href="">privacy policy</a> and <a href="">Terms of Service</a> apply.</p>
             </div>
         </div>
     </div>
 
 <script>
-
-
-
-const USERID = {
-    name: null,
-    identity: null,
-    image: null,
-    message: null,
-    date: null
-}
-
 const userComment = document.querySelector(".usercomment");
 const publishBtn = document.querySelector("#publish");
-const comments = document.querySelector(".comments");
+const commentsContainer = document.querySelector(".comments");
 const userName = document.querySelector(".user");
-const notify = document.querySelector(".notifyinput");
+const commentCounter = document.querySelector("#comment");
 
-    userComment.addEventListener("input", e => {
-        if(!userComment.value) {
-            publishBtn.setAttribute("disabled", "disabled");
-            publishBtn.classList.remove("abled")
-        }else {
-            publishBtn.removeAttribute("disabled");
-            publishBtn.classList.add("abled")
+userComment.addEventListener("input", () => {
+    const hasComment = userComment.value.trim() !== "";
+
+    publishBtn.disabled = !hasComment;
+    publishBtn.classList.toggle("abled", hasComment);
+});
+
+function displayComment(comment) {
+    const parent = document.createElement("div");
+    parent.className = "parents";
+
+    const profileImage = document.createElement("img");
+    profileImage.src =
+        comment.name.toLowerCase() === "anonymous"
+            ? "anonymous.png"
+            : "user.png";
+    profileImage.alt = "";
+
+    const content = document.createElement("div");
+
+    const name = document.createElement("h1");
+    name.textContent = comment.name;
+
+    const message = document.createElement("p");
+    message.textContent = comment.message;
+
+    const engagements = document.createElement("div");
+    engagements.className = "engagements";
+
+    const likeImage = document.createElement("img");
+    likeImage.src = "like.png";
+    likeImage.alt = "Like";
+
+    const shareImage = document.createElement("img");
+    shareImage.src = "share.png";
+    shareImage.alt = "Share";
+
+    engagements.append(likeImage, shareImage);
+
+    const date = document.createElement("span");
+    date.className = "date";
+    date.textContent = new Date(comment.created_at).toLocaleString();
+
+    content.append(name, message, engagements, date);
+    parent.append(profileImage, content);
+    commentsContainer.append(parent);
+}
+
+function updateCommentCount() {
+    commentCounter.textContent =
+        commentsContainer.querySelectorAll(".parents").length;
+}
+
+async function loadComments() {
+    try {
+        const response = await fetch("/api/comments");
+
+        if (!response.ok) {
+            throw new Error("Could not load comments.");
         }
-    })
 
-    function addPost() {
-        if(!userComment.value) return;
-        USERID.name = userName.value;
-        if(USERID.name === "Anonymous") {
-            USERID.identity = false;
-            USERID.image = "anonymous.png"
-        }else {
-            USERID.identity = true;
-            USERID.image = "user.png"
-        }
+        const comments = await response.json();
 
-        USERID.message = userComment.value;
-        USERID.date = new Date().toLocaleString();
-        let published = 
-        `<div class="parents">
-            <img src="${USERID.image}">
-            <div>
-                <h1>${USERID.name}</h1>
-                <p>${USERID.message}</p>
-                <div class="engagements"><img src="like.png" id="like"><img src="share.png" alt=""></div>
-                <span class="date">${USERID.date}</span>
-            </div>    
-        </div>`
+        commentsContainer.replaceChildren();
 
-        comments.innerHTML += published;
-        userComment.value = "";
-        publishBtn.classList.remove("abled")
-
-        let commentsNum = document.querySelectorAll(".parents").length;
-        document.getElementById("comment").textContent = commentsNum;
-
+        comments.forEach(displayComment);
+        updateCommentCount();
+    } catch (error) {
+        console.error(error);
     }
+}
 
-    publishBtn.addEventListener("click", addPost);
+async function addPost() {
+    const message = userComment.value.trim();
+    const name = userName.value.trim() || "Anonymous";
 
+    if (!message) return;
+
+    publishBtn.disabled = true;
+
+    try {
+        const response = await fetch("/api/comments", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                name: name,
+                message: message
+            })
+        });
+
+        const result = await response.json();
+
+        if (!response.ok) {
+            throw new Error(result.error || "Could not publish comment.");
+        }
+
+        displayComment(result);
+        updateCommentCount();
+
+        userComment.value = "";
+        publishBtn.classList.remove("abled");
+    } catch (error) {
+        alert(error.message);
+    } finally {
+        publishBtn.disabled = userComment.value.trim() === "";
+    }
+}
+
+publishBtn.addEventListener("click", addPost);
+
+loadComments();
 </script>
 
 </body>
