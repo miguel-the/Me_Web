@@ -293,5 +293,80 @@
        By: <a href="https://www.youtube.com/@theobservableuniverse8352"> Me</a>
     </p>
 
+      
+<button 
+ 
+  onclick= "topFunction()" id="myBtn" title="Go to top"> <img src="/assests/b88.png" alt="Example diagram" width="50" height="50">
 
+</button>
+
+<script>
+// Get the button
+let mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } 
+  else 
+  {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+
+<button type="button" onclick="myFunction2()">Activate Evil Mode</button>
+
+<script>
+function myFunction2() 
+{
+  document.body.style.backgroundColor = "black";
+  document.body.style.color = "white";
+  document.getElementById("toc").style.color = "black";
+  document.getElementById("toc2").style.color = "black";
+}
+</script>
+
+<div style="height: 70px;"></div>
+
+<button type="button" onclick="myFunction3()">Activate Morally Ambivalent Mode</button>
+
+<script>
+function myFunction3() 
+{
+  document.body.style.backgroundColor = "#f9f9f9";
+  document.body.style.color = "black";
+  document.getElementById("toc").style.color = "black";
+  document.getElementById("toc2").style.color = "black";
+}
+</script>
+
+<main>
+    <nav class="toc" aria-label="Table of contents">
+      <h2 id="toc" >Table of Contents</h2>
+      <ol id="toc2">
+        <li><a href="#1">Experience and or Skill</a></li>
+        <li><a href="#2">Equipment</a></li>
+        <li><a href="#3">Abilities</a></li>
+        <li><a href="#4">Forms</a></li>
+        <li><a href="#5">Feats</a></li>
+        <li><a href="#6">Scaling</a></li>
+        <li><a href="#7">Resistances</a></li>
+        <li><a href="#8">Weaknesses</a></li>
+        <li><a href="#9">Other</a></li>
+      </ol>
+    </nav>
+
+
+
+</main>
 </body>
